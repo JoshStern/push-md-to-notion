@@ -1,0 +1,36 @@
+{
+  "name": "@joshstern/push-md-to-notion",
+  "version": "1.0.0",
+  "description": "Push markdown files to notion pages.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "esbuild --target=node16 --platform=node --bundle src/main.ts --outfile=dist/main.js"
+  },
+  "keywords": [
+    "notion",
+    "github",
+    "markdown",
+    "md"
+  ],
+  "author": "Josh Stern <josh.stern95@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "esbuild": "^0.17.10",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@notionhq/client": "^2.2.3",
+    "@tryfabric/martian": "^1.2.4",
+    "gray-matter": "^4.0.3"
+  }
+}
