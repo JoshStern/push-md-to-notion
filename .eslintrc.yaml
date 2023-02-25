@@ -1,0 +1,19 @@
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - prettier
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+  - import
+root: true
+rules:
+  import/order:
+    - error
+    - newlines-between: 'always'
+      alphabetize:
+        order: asc
+ignorePatterns:
+  - dist
+  - node_modules
