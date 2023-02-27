@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-action.json
 name: Push Markdown to Notion
 description: Push markdown changes to Notion
+author: JoshStern
+branding:
+  color: blue
+  icon: book-open
 inputs:
   notion-token:
     description: 'Notion integration token'
