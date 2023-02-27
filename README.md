@@ -28,16 +28,17 @@ on:
   push:
     branches:
       - main
-
 jobs:
   push_markdown_job:
     runs-on: ubuntu-latest
-    name: Push markdown to Notion
+    name: Push Markdown to Notion
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - name: Push markdown
-        uses: joshstern/push-md-to-notion@v0.1
+        uses: ./
         id: push_markdown
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}

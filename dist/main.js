@@ -24258,6 +24258,7 @@ function getChangedMdFiles() {
   const gitOutput = (0, import_node_child_process.execSync)("git show --name-only --pretty=format:", {
     encoding: "utf-8"
   });
+  console.log({ gitOutput });
   return gitOutput.trim().split("\n").filter((fn) => fn.endsWith(".md"));
 }
 
