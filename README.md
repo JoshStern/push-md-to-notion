@@ -37,8 +37,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - name: Push markdown
-        uses: ./
+      - name: Push Markdown to Notion
+        uses: JoshStern/push-md-to-notion@v0.2
         id: push_markdown
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
