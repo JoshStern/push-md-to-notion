@@ -21,7 +21,7 @@ Head to the [Notion dashboard](https://www.notion.so/my-integrations) and create
 
 ## 2. Configure a Github workflow
 
-This workflow will run for every push to `main`. It is dependent on having access to `git` and the repo being checked. It will check the latest commit on whichever branch is checked out for markdown changes.
+This workflow will run for every push to `main`. It is dependent on having access to `git` and the repo being checked. It will check the latest commit on whichever branch is checked out for markdown changes. Make sure to add `fetch-depth: 2` for the diff check to work correctly.
 
 ```yaml
 on:
