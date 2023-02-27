@@ -9,8 +9,6 @@ export function getChangedMdFiles(): string[] {
     encoding: 'utf-8',
   });
 
-  console.log({ gitOutput });
-
   return gitOutput
     .trim()
     .split('\n')
