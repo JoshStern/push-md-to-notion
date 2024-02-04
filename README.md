@@ -3,11 +3,11 @@ notion_page: https://joshstern.notion.site/Github-Markdown-files-in-Notion-e2c14
 title: Github Markdown files in Notion
 ---
 
-# Managing documentation
+# Managing markdown documentation
 
 As projects scale it's important to keep documentation accessible and up-to-date. README's and other markdown files that live alongside source can be extremely useful for building context as you work throughout a repository.
 
-For many organizations Notion is the central store for many types of documentation. This project hopes to let engineers continue to author project documentation alongside their work and also make sure it stays up to date with the broader organization documentation.
+For many organizations Notion is the central store for documentation. This project lets engineers continue to author documentation alongside their work and also make sure it stays up to date with the broader organization documentation.
 
 # Usage
 

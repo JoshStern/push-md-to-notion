@@ -10,5 +10,5 @@ inputs:
     description: 'Notion integration token'
     required: true
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/main.js'
