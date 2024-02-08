@@ -34,11 +34,11 @@ jobs:
     name: Push Markdown to Notion
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Push Markdown to Notion
-        uses: JoshStern/push-md-to-notion@v0.2
+        uses: JoshStern/push-md-to-notion@v0.3.0.
         id: push_markdown
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
