@@ -38,7 +38,7 @@ jobs:
         with:
           fetch-depth: 2
       - name: Push Markdown to Notion
-        uses: JoshStern/push-md-to-notion@v0.3.0.
+        uses: JoshStern/push-md-to-notion@v0.3.0
         id: push_markdown
         with:
           notion-token: ${{ secrets.NOTION_TOKEN }}
