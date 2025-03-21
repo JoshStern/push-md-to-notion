@@ -5,7 +5,7 @@ import { execSync } from 'node:child_process';
  * @returns List of markdown files.
  */
 export function getChangedMdFiles(): string[] {
-  const gitOutput = execSync('git show --name-only --pretty=format:', {
+  const gitOutput = execSync('git diff --name-only HEAD~1 HEAD', {
     encoding: 'utf-8',
   });
 
