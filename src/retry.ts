@@ -1,7 +1,10 @@
 import { setTimeout } from 'node:timers/promises';
 
 export class RetryError extends Error {
-  constructor(message: string, public readonly failures: Error[]) {
+  constructor(
+    message: string,
+    public readonly failures: Error[],
+  ) {
     super(message);
   }
 }
@@ -12,7 +15,7 @@ function expDelay(c: number, g: number, n: number): number {
 
 export async function retry<R>(
   fn: () => R,
-  opts: { tries?: number; shouldRetry?: (res: R) => boolean } = {}
+  opts: { tries?: number; shouldRetry?: (res: R) => boolean } = {},
 ): Promise<R | RetryError> {
   const { tries = 2, shouldRetry = () => false } = opts;
   const errors: Error[] = [];

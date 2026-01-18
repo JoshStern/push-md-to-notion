@@ -16,9 +16,7 @@ export const actionStore = new AsyncLocalStorage<ActionCtx>();
 export function getCtx() {
   const ctx = actionStore.getStore();
   if (ctx === undefined) {
-    throw new ContextError(
-      'Get context must be called within the action function call!'
-    );
+    throw new ContextError('Get context must be called within the action function call!');
   }
   return ctx;
 }

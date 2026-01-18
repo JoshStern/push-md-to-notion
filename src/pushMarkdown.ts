@@ -53,18 +53,16 @@ export async function pushMarkdownFile(mdFilePath: string) {
     throw new Error('Could not get page ID from frontmatter');
   }
 
+  console.log('Clearing page content');
+  await notion.clearPage(pageId);
+
   if (pageData.title) {
     console.log(`Updating title: ${pageData.title}`);
     await notion.updatePageTitle(pageId, pageData.title);
   }
 
-  console.log('Clearing page content');
-  await notion.clearBlockChildren(pageId);
-
   console.log('Adding markdown content');
-  await notion.appendMarkdown(pageId, fileMatter.content, [
-    createWarningBlock(mdFilePath),
-  ]);
+  await notion.appendMarkdown(pageId, fileMatter.content, [createWarningBlock(mdFilePath)]);
 }
 
 function createWarningBlock(fileName: string): BlockObjectRequest {
@@ -72,7 +70,7 @@ function createWarningBlock(fileName: string): BlockObjectRequest {
     type: 'callout',
     callout: {
       rich_text: markdownToRichText(
-        `This file is linked to Github. Changes must be made in the [markdown file](${github.context.payload.repository?.html_url}/blob/${github.context.sha}/${fileName}) to be permanent.`
+        `This file is linked to Github. Changes must be made in the [markdown file](${github.context.payload.repository?.html_url}/blob/${github.context.sha}/${fileName}) to be permanent.`,
       ),
       icon: {
         emoji: '⚠',

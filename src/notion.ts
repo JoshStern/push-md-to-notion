@@ -1,6 +1,10 @@
 import { Client } from '@notionhq/client';
-import type { BlockObjectRequest } from '@notionhq/client/build/src/api-endpoints';
+import type {
+  AppendBlockChildrenParameters,
+  BlockObjectRequest,
+} from '@notionhq/client/build/src/api-endpoints';
 import { markdownToBlocks } from '@tryfabric/martian';
+import { batch } from './batch';
 
 /**
  * Class for managing Notion client state and methods needed for the action.
@@ -30,12 +34,8 @@ export class NotionApi {
     });
   }
 
-  public async clearBlockChildren(blockId: string) {
-    for await (const block of this.listChildBlocks(blockId)) {
-      await this.client.blocks.delete({
-        block_id: block.id,
-      });
-    }
+  public async clearPage(pageId: string) {
+    await this.client.pages.update({ erase_content: true, page_id: pageId });
   }
 
   /**
@@ -43,14 +43,14 @@ export class NotionApi {
    * @param blockId Block which the markdown elements will be appended to.
    * @param md Markdown as string.
    */
-  public async appendMarkdown(
-    blockId: string,
-    md: string,
-    preamble: BlockObjectRequest[] = []
-  ) {
-    await this.client.blocks.children.append({
-      block_id: blockId,
-      children: [...preamble, ...markdownToBlocks(md)],
+  public async appendMarkdown(blockId: string, md: string, preamble: BlockObjectRequest[] = []) {
+    const blocksToAppend = [...preamble, ...markdownToBlocks(md)];
+
+    await batch(blocksToAppend, async (blockBatch) => {
+      await this.client.blocks.children.append({
+        block_id: blockId,
+        children: blockBatch as AppendBlockChildrenParameters['children'],
+      });
     });
   }
 

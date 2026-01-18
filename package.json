@@ -2,35 +2,30 @@
   "name": "@joshstern/push-md-to-notion",
   "version": "1.0.0",
   "description": "Push markdown files to notion pages.",
+  "keywords": [
+    "github",
+    "markdown",
+    "md",
+    "notion"
+  ],
+  "license": "MIT",
+  "author": "Josh Stern <josh.stern95@gmail.com>",
   "main": "dist/index.js",
   "scripts": {
     "build": "esbuild --target=node20 --platform=node --bundle src/main.ts --outfile=dist/main.js"
   },
-  "keywords": [
-    "notion",
-    "github",
-    "markdown",
-    "md"
-  ],
-  "author": "Josh Stern <josh.stern95@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.11.16",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
-    "@typescript-eslint/parser": "^6.20.0",
-    "esbuild": "^0.20.0",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "prettier": "^3.2.4",
-    "typescript": "^5.3.3"
-  },
   "dependencies": {
-    "@actions/core": "^1.10.1",
-    "@actions/github": "^6.0.0",
-    "@notionhq/client": "^2.2.14",
+    "@actions/core": "^2.0.2",
+    "@actions/github": "^7.0.0",
+    "@notionhq/client": "^5.7.0",
     "@tryfabric/martian": "^1.2.4",
     "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "esbuild": "^0.27.2",
+    "oxfmt": "^0.24.0",
+    "oxlint": "^1.39.0",
+    "typescript": "^5.3.3"
   }
 }
