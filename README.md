@@ -71,12 +71,6 @@ Repeat steps 3 and 4 for new markdown files.
 
 This tool has all of the standard [Notion API limits](https://developers.notion.com/reference/request-limits).
 
-## Slow syncs
-
-Notion does not have a bulk delete blocks API. When trying to speed things up by batching delete requests the sync job began erroring because of state conflicts in Notion. We're left with deleting blocks one-by-one, which for large pages can take some time. The update API also has very limited options so it can't be used to replace existing elements.
-
-Some optimizations could be made to also parallelize by documents but the current implementation fits my needs. Contributions welcome!
-
 # Thanks
 
 This project is mostly a wire-up of the [Notion client](https://www.npmjs.com/package/@notionhq/client) and [`@tryfabric/martian`](https://www.npmjs.com/package/@tryfabric/martian). Many thanks to the maintainers of those projects!
