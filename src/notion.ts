@@ -46,12 +46,16 @@ export class NotionApi {
   public async appendMarkdown(blockId: string, md: string, preamble: BlockObjectRequest[] = []) {
     const blocksToAppend = [...preamble, ...markdownToBlocks(md)];
 
-    await batch(blocksToAppend, async (blockBatch) => {
-      await this.client.blocks.children.append({
-        block_id: blockId,
-        children: blockBatch as AppendBlockChildrenParameters['children'],
-      });
-    });
+    await batch(
+      blocksToAppend,
+      async (blockBatch) => {
+        await this.client.blocks.children.append({
+          block_id: blockId,
+          children: blockBatch as AppendBlockChildrenParameters['children'],
+        });
+      },
+      { size: 100 },
+    );
   }
 
   /**

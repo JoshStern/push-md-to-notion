@@ -38,3 +38,5 @@ print('hello python')
 | test  | test2 |
 | ----- | ----- |
 | table | table |
+
+Force sync diff: x
