@@ -4,7 +4,7 @@
   "description": "Push markdown files to notion pages.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild --target=node20 --platform=node --bundle src/main.ts --outfile=dist/main.js"
+    "build": "esbuild --target=node24 --platform=node --bundle src/main.ts --outfile=dist/main.js"
   },
   "keywords": [
     "notion",
